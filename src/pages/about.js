@@ -1,6 +1,6 @@
 export default function About() {
     return (
-        <section className="md:p-28 lg:p-36 p-24">
+        <section className="md:p-28 lg:p-36 p-24 bg-zinc-950">
             <p className="font-body  font-normal text-zinc-200">
                 Hi there! I'm{" "}
                 <span className="font-display text-lg uppercase tracking-widest">
