@@ -1,9 +1,9 @@
 export default function About() {
     return (
-        <section className="md:p-28 lg:p-36 p-24 bg-zinc-950">
-            <p className="font-body  font-normal text-zinc-200">
+        <section className="md:p-28 lg:p-36 px-12 bg-zinc-950 h-screen py-20 lg:text-2xl overflow-y-auto">
+            <p className="font-body font-normal text-zinc-200 ">
                 Hi there! I'm{" "}
-                <span className="font-display text-lg uppercase tracking-widest">
+                <span className="font-display text-lg uppercase tracking-widest lg:text-3xl">
                     Tina Mimika
                 </span>
                 , and I'm passionate about capturing the beauty of interior

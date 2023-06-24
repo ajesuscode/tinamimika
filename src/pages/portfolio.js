@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { useState } from "react";
-import pic1 from "../assets/pic1.jpeg";
-export default function Portfolio() {
-    const [modalImage, setModalImage] = useState(null);
+import { useState, useEffect } from "react";
+import { CldImage } from "next-cloudinary";
+import { search, mapImageResource } from "@/lib/cloudinary";
 
+export default function Portfolio({ images }) {
+    const [modalImage, setModalImage] = useState(null);
     const openModal = (image) => {
         setModalImage(image);
     };
@@ -12,39 +13,22 @@ export default function Portfolio() {
         setModalImage(null);
     };
 
-    const images = [
-        pic1,
-        pic1,
-        pic1,
-        pic1,
-        pic1,
-        pic1,
-        pic1,
-        pic1,
-        pic1,
-        pic1,
-        pic1,
-        pic1,
-        pic1,
-        pic1,
-        pic1,
-        pic1,
-    ];
-
     return (
         <>
             <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 bg-zinc-950">
-                {images.map((image, index) => (
+                {images.map((image) => (
                     <div
-                        key={index}
+                        key={image.id}
                         className="col-span-1 border-r border-b h-84 border-zinc-800/50 relative hover:shadow-lg hover:shadow-zinc-900 cursor-pointer"
                         onClick={() => openModal(image)}
                     >
                         <div className="m-4">
-                            <Image
-                                src={image}
-                                alt={`pic-${index + 1}`}
-                                className=""
+                            <CldImage
+                                width="800"
+                                height="800"
+                                src={image.title}
+                                sizes="100vw"
+                                alt={image.title}
                             />
                         </div>
                     </div>
@@ -81,18 +65,33 @@ export default function Portfolio() {
                                 />
                             </svg>
                         </button>
-                        <Image
-                            src={modalImage}
+                        <CldImage
+                            src={modalImage.image}
                             alt="modal-image"
-                            className="w-[46rem] object-contain"
+                            className="w-[64rem] object-contain"
+                            width="1920"
+                            height="1920"
+                            sizes="100vw"
                         />
                     </div>
-                    <div className="pt-12 lg:ml-8 lg:self-end lg:pb-28 font-display tracking-widest text-xs font-light text-zinc-200 lg:text-sm">
-                        <p className="text-base">Atlantic Sunset</p>
+                    {/* <div className="pt-12 lg:ml-8 lg:self-end lg:pb-28 font-display tracking-widest text-xs font-light text-zinc-200 lg:text-sm">
+                        <p className="text-base">{modalImage.title}</p>
                         <p>Pays Basque, 2023</p>
-                    </div>
+                    </div> */}
                 </div>
             )}
         </>
     );
+}
+
+export async function getStaticProps() {
+    const results = await search();
+    console.log("results", results);
+    const { resources } = results;
+    const images = mapImageResource(resources);
+    return {
+        props: {
+            images,
+        },
+    };
 }

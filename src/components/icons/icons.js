@@ -5,7 +5,7 @@ export function ExteriorIcon() {
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 113.39 113.39"
-            className="w-8 h-8 text-zinc-800 hover:text-zinc-500"
+            className="w-8 h-8 text-zinc-600 hover:text-zinc-300"
         >
             <g id="レイヤー_2" data-name="レイヤー 2">
                 <g id="waku">
@@ -60,7 +60,7 @@ export function InteriorIcon() {
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 113.39 113.39"
-            className="w-8 h-8 text-zinc-800 hover:text-zinc-500"
+            className="w-8 h-8 text-zinc-600 hover:text-zinc-300"
         >
             <g id="レイヤー_2" data-name="レイヤー 2">
                 <g id="waku">
@@ -102,7 +102,7 @@ export function PaysageIcon() {
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 113.39 113.39"
-            className="w-8 h-8 text-zinc-800 hover:text-zinc-500"
+            className="w-8 h-8 text-zinc-600 hover:text-zinc-300"
         >
             <g id="レイヤー_2" data-name="レイヤー 2">
                 <g id="waku">
@@ -139,7 +139,7 @@ export function OceanIcon() {
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 113.39 113.39"
-            className="w-8 h-8 text-zinc-800 hover:text-zinc-500"
+            className="w-8 h-8 text-zinc-600 hover:text-zinc-300"
         >
             <g id="レイヤー_2" data-name="レイヤー 2">
                 <g id="waku">

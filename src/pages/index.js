@@ -24,7 +24,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <section className=" mx-auto flex items-center justify-center">
+            <section className="mx-auto flex items-center justify-center md:max-w-lg lg:max-w-5xl">
                 <Image src={pic1} alt="main pic" className="w-[54rem]" />
             </section>
             <div className="hidden mx-auto lg:flex lg:flex-col lg:justify-center lg:gap-48 ">
