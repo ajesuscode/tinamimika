@@ -16,13 +16,14 @@ export async function search() {
 
 export function mapImageResource(resources) {
     return resources.map((res) => {
-        const { width, height } = res;
+        const { width, height, folder } = res;
         return {
             id: res.asset_id,
             title: res.public_id,
             image: res.secure_url,
             width,
             height,
+            folder,
         };
     });
 }

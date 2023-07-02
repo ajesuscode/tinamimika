@@ -2,6 +2,12 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { CldImage } from "next-cloudinary";
 import { search, mapImageResource } from "@/lib/cloudinary";
+import {
+    ExteriorIcon,
+    InteriorIcon,
+    PaysageIcon,
+    OceanIcon,
+} from "@/components/icons/icons";
 
 export default function Portfolio({ images }) {
     const [modalImage, setModalImage] = useState(null);
@@ -13,27 +19,45 @@ export default function Portfolio({ images }) {
         setModalImage(null);
     };
 
+    // Group images by folder
+    const imagesByFolder = images.reduce((groups, image) => {
+        const group = groups[image.folder] || [];
+        group.push(image);
+        groups[image.folder] = group;
+        return groups;
+    }, {});
+
     return (
         <>
-            <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 bg-zinc-950">
-                {images.map((image) => (
-                    <div
-                        key={image.id}
-                        className="col-span-1 border-r border-b h-84 border-zinc-800/50 relative hover:shadow-lg hover:shadow-zinc-900 cursor-pointer"
-                        onClick={() => openModal(image)}
-                    >
-                        <div className="m-4">
-                            <CldImage
-                                width="800"
-                                height="800"
-                                src={image.title}
-                                sizes="100vw"
-                                alt={image.title}
-                            />
-                        </div>
+            {Object.entries(imagesByFolder).map(([folder, images]) => (
+                <div key={folder} id={folder} className="bg-zinc-950">
+                    <div className="flex flex-row justify-center gap-4 py-6 pl-4 items-center">
+                        <h2 className="font-display tracking-widest text-xs ">
+                            {folder}
+                        </h2>
                     </div>
-                ))}
-            </div>
+
+                    <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 bg-zinc-950">
+                        {images.map((image) => (
+                            <div
+                                key={image.id}
+                                className="col-span-1 border-r border-b  border-t h-84 border-zinc-800/50 relative hover:shadow-lg hover:shadow-zinc-900 cursor-pointer"
+                                onClick={() => openModal(image)}
+                            >
+                                <div className="m-4">
+                                    <CldImage
+                                        width="800"
+                                        height="800"
+                                        src={image.title}
+                                        sizes="100vw"
+                                        alt={image.title}
+                                    />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))}
             {modalImage && (
                 <div
                     className="fixed top-0 left-0 w-full h-full bg-stone-950 bg-opacity-95 lg:flex lg:flex-row flex flex-col items-center justify-center cursor-pointer pt-24 px-4 lg:pt-4"
@@ -66,7 +90,7 @@ export default function Portfolio({ images }) {
                             </svg>
                         </button>
                         <CldImage
-                            src={modalImage.image}
+                            src={modalImage.title}
                             alt="modal-image"
                             className="w-[64rem] object-contain"
                             width="1920"
@@ -74,10 +98,6 @@ export default function Portfolio({ images }) {
                             sizes="100vw"
                         />
                     </div>
-                    {/* <div className="pt-12 lg:ml-8 lg:self-end lg:pb-28 font-display tracking-widest text-xs font-light text-zinc-200 lg:text-sm">
-                        <p className="text-base">{modalImage.title}</p>
-                        <p>Pays Basque, 2023</p>
-                    </div> */}
                 </div>
             )}
         </>
@@ -88,7 +108,21 @@ export async function getStaticProps() {
     const results = await search();
     console.log("results", results);
     const { resources } = results;
-    const images = mapImageResource(resources);
+    let images = mapImageResource(resources);
+
+    // Define the sort order for the folders
+    const folderOrder = {
+        architectual: 1,
+        interior: 2,
+        ocean: 3,
+        paysage: 4,
+    };
+
+    // Sort images by folder
+    images = images.sort((a, b) => {
+        return folderOrder[a.folder] - folderOrder[b.folder];
+    });
+
     return {
         props: {
             images,
