@@ -9,9 +9,9 @@ import { OceanIcon } from "@/components/icons/icons";
 export default function Home() {
     return (
         <main
-            className={`py-20 px-2 bg-zinc-950 lg:flex lg:pt-2 md:py-16 md:h-screen lg:flex-row`}
+            className={`py-20 px-2 bg-zinc-950 lg:flex lg:pt-2 md:py-16  lg:flex-row`}
         >
-            <div className="hidden mx-auto lg:flex lg:flex-col lg:justify-center lg:gap-48 ">
+            <div className="hidden mx-auto lg:flex lg:flex-col lg:justify-center lg:gap-48">
                 <div className="relative hover:scale-105 group/icon">
                     <Link href="/portfolio#architectual">
                         <ExteriorIcon />
@@ -29,8 +29,8 @@ export default function Home() {
                     </Link>
                 </div>
             </div>
-            <section className="mx-auto flex items-center justify-center md:max-w-lg lg:max-w-5xl">
-                <Image src={pic1} alt="main pic" className="w-[54rem]" />
+            <section className="mx-auto flex items-center justify-center md:max-w-md lg:max-w-5xl ">
+                <Image src={pic1} alt="main pic" className="w-[54rem] " />
             </section>
             <div className="hidden mx-auto lg:flex lg:flex-col lg:justify-center lg:gap-48 ">
                 <div className="relative hover:scale-105 group/icon">
@@ -51,7 +51,7 @@ export default function Home() {
                 </div>
             </div>
             {/* small screen devices */}
-            <div className="lg:hidden flex flex-row justify-between gap-2 px-4 pt-12 md:pt-24">
+            <div className="lg:hidden flex flex-row justify-between gap-2 px-4 pt-12 ">
                 <div className="flex flex-col items-center">
                     <Link href="/portfolio#architectual">
                         <ExteriorIcon />

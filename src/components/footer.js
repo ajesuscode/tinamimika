@@ -45,9 +45,8 @@ function Footer() {
                         </a>
                         <a
                             rel="noopener noreferrer"
-                            href="#"
+                            href="mailto:tinamimika.ocean@gmail.com"
                             title="Email"
-                            target="_blank"
                             className="flex items-center justify-center w-6 h-6 rounded-lg sm:w-10 sm:h-10 dark:bg-zinc-400 dark:text-zinc-950"
                         >
                             <svg
