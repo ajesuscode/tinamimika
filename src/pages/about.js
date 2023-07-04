@@ -2,7 +2,7 @@ export default function About() {
     return (
         <section className="md:p-28 lg:p-36 px-12 bg-zinc-950 h-screen py-20 lg:text-2xl overflow-y-auto">
             <p className="font-body font-normal text-zinc-200 ">
-                Hi there! I'm{" "}
+                Bonjour! I'm{" "}
                 <span className="font-display text-lg uppercase tracking-widest lg:text-3xl">
                     Tina Mimika
                 </span>
@@ -30,6 +30,9 @@ export default function About() {
                 environment and the natural world. I've always had a love for
                 the ocean, and this passion is reflected in my oceanscapes,
                 which capture the power and majesty of the Father Ocean.
+            </p>
+            <p className="font-body  font-normal text-zinc-200 pt-4">
+                🇫🇷 France. 🌍 Worldwide
             </p>
         </section>
     );

@@ -112,7 +112,7 @@ export async function getStaticProps() {
 
     // Define the sort order for the folders
     const folderOrder = {
-        architectual: 1,
+        exterior: 1,
         interior: 2,
         ocean: 3,
         paysage: 4,

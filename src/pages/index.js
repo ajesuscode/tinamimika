@@ -13,10 +13,10 @@ export default function Home() {
         >
             <div className="hidden mx-auto lg:flex lg:flex-col lg:justify-center lg:gap-48">
                 <div className="relative hover:scale-105 group/icon">
-                    <Link href="/portfolio#architectual">
+                    <Link href="/portfolio#exterior">
                         <ExteriorIcon />
                         <div class="absolute top-0 left-full w-72 mt-2 tracking-widest text-zinc-500 px-4 rounded-md text-sm invisible group-hover/icon:visible font-display">
-                            Architectual
+                            Exterior
                         </div>
                     </Link>
                 </div>
@@ -53,10 +53,10 @@ export default function Home() {
             {/* small screen devices */}
             <div className="lg:hidden flex flex-row justify-between gap-2 px-4 pt-12 ">
                 <div className="flex flex-col items-center">
-                    <Link href="/portfolio#architectual">
+                    <Link href="/portfolio#exterior">
                         <ExteriorIcon />
                         <span className="text-xs font-display text-zinc-600 tracking-widest pt-4">
-                            Architectual
+                            Exterior
                         </span>
                     </Link>
                 </div>
