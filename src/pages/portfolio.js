@@ -49,7 +49,7 @@ export default function Portfolio({ images }) {
                                         width="800"
                                         height="800"
                                         src={image.title}
-                                        sizes="25vw"
+                                        sizes="75vw"
                                         alt={image.title}
                                     />
                                 </div>
@@ -95,7 +95,7 @@ export default function Portfolio({ images }) {
                             className="w-[64rem] object-contain"
                             width="1920"
                             height="1920"
-                            sizes="75vw"
+                            sizes="100vw"
                         />
                     </div>
                 </div>
