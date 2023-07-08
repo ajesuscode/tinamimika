@@ -1,22 +1,19 @@
-import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useSwipeable } from "react-swipeable";
 import { CldImage } from "next-cloudinary";
 import { search, mapImageResource } from "@/lib/cloudinary";
-import {
-    ExteriorIcon,
-    InteriorIcon,
-    PaysageIcon,
-    OceanIcon,
-} from "@/components/icons/icons";
 
 export default function Portfolio({ images }) {
     const [modalImage, setModalImage] = useState(null);
+    const [modalImageIndex, setModalImageIndex] = useState(null);
+    const [windowWidth, setWindowWidth] = useState(null);
+
     const openModal = (image) => {
         setModalImage(image);
     };
 
     const closeModal = () => {
-        setModalImage(null);
+        setModalImageIndex(null);
     };
 
     // Group images by folder
@@ -26,6 +23,25 @@ export default function Portfolio({ images }) {
         groups[image.folder] = group;
         return groups;
     }, {});
+
+    const goToNextImage = () => {
+        setModalImageIndex((prevIndex) =>
+            prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    const goToPreviousImage = () => {
+        setModalImageIndex((prevIndex) =>
+            prevIndex === 0 ? images.length - 1 : prevIndex - 1
+        );
+    };
+
+    const handlers = useSwipeable({
+        onSwipedLeft: () => goToNextImage(),
+        onSwipedRight: () => goToPreviousImage(),
+        preventDefaultTouchmoveEvent: true,
+        trackMouse: true,
+    });
 
     return (
         <>
@@ -42,7 +58,9 @@ export default function Portfolio({ images }) {
                             <div
                                 key={image.id}
                                 className="col-span-1 border-r border-b  border-t h-84 border-zinc-800/50 relative hover:shadow-lg hover:shadow-zinc-900 cursor-pointer"
-                                onClick={() => openModal(image)}
+                                onClick={() =>
+                                    setModalImageIndex(images.indexOf(image))
+                                }
                             >
                                 <div className="m-4">
                                     <CldImage
@@ -58,46 +76,58 @@ export default function Portfolio({ images }) {
                     </div>
                 </div>
             ))}
-            {modalImage && (
+            {modalImageIndex !== null && (
                 <div
                     className="fixed top-0 left-0 w-full h-full bg-stone-950 bg-opacity-95 lg:flex lg:flex-row flex flex-col items-center justify-center cursor-pointer pt-24 px-4 lg:pt-4"
-                    onClick={closeModal}
+                    // onClick={closeModal}
                 >
-                    <div className="hidden lg:mr-8 w-20"></div>
-                    <div
-                        className="max-w-screen-lg max-h-screen-80 cursor-default flex flex-col items-center relative"
-                        onClick={(event) => {
-                            event.stopPropagation();
-                        }}
+                    <button
+                        onClick={goToPreviousImage}
+                        className="hidden md:pr-4 md:block"
                     >
-                        <button
-                            className="absolute top-2 right-2 p-2 rounded-md text-zinc-100 hover:bg-opacity-50 md:flex"
-                            onClick={closeModal}
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            className=""
                         >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                className="w-6 h-6"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M6 18L18 6M6 6l12 12"
-                                />
-                            </svg>
-                        </button>
-                        <CldImage
-                            src={modalImage.title}
-                            alt="modal-image"
-                            className="w-[64rem] object-contain"
-                            width="1920"
-                            height="1920"
-                            sizes="100vw"
-                        />
-                    </div>
+                            <path d="m15 18-6-6 6-6" />
+                        </svg>
+                    </button>
+                    <CldImage
+                        {...handlers}
+                        src={images[modalImageIndex].title}
+                        alt="modal-image"
+                        className="w-[64rem] object-contain"
+                        width="1920"
+                        height="1920"
+                        sizes="100vw"
+                    />
+                    <button
+                        onClick={goToNextImage}
+                        className="w-24 h-24 hidden md:block md:pl-4"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-chevron-right"
+                        >
+                            <path d="m9 18 6-6-6-6" />
+                        </svg>
+                    </button>
                 </div>
             )}
         </>
