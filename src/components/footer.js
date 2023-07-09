@@ -61,7 +61,17 @@ function Footer() {
                         </a>
                     </div>
                     <div className="flex items-center justify-center pt-8 font-display text-xs tracking-widest text-zinc-400">
-                        Developed by ajesuscode © 2023
+                        Developed by
+                        <a
+                            rel="noopener noreferrer"
+                            href="https://github.com/ajesuscode"
+                            title="Vimeo"
+                            target="_blank"
+                            className="text-lime-900 px-1 hover:text-lime-600"
+                        >
+                            <span>ajesuscode </span>
+                        </a>
+                        © 2023
                     </div>
                 </div>
             </div>
