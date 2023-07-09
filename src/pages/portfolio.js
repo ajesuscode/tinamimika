@@ -6,7 +6,6 @@ import { search, mapImageResource } from "@/lib/cloudinary";
 export default function Portfolio({ images }) {
     const [modalImage, setModalImage] = useState(null);
     const [modalImageIndex, setModalImageIndex] = useState(null);
-    const [windowWidth, setWindowWidth] = useState(null);
 
     const openModal = (image) => {
         setModalImage(image);
@@ -24,15 +23,17 @@ export default function Portfolio({ images }) {
         return groups;
     }, {});
 
+    const flattenedImages = [].concat(...Object.values(imagesByFolder));
+
     const goToNextImage = () => {
         setModalImageIndex((prevIndex) =>
-            prevIndex === images.length - 1 ? 0 : prevIndex + 1
+            prevIndex === flattenedImages.length - 1 ? 0 : prevIndex + 1
         );
     };
 
     const goToPreviousImage = () => {
         setModalImageIndex((prevIndex) =>
-            prevIndex === 0 ? images.length - 1 : prevIndex - 1
+            prevIndex === 0 ? flattenedImages.length - 1 : prevIndex - 1
         );
     };
 
@@ -43,6 +44,7 @@ export default function Portfolio({ images }) {
         trackMouse: true,
     });
 
+    console.log(modalImageIndex);
     return (
         <>
             {Object.entries(imagesByFolder).map(([folder, images]) => (
@@ -59,7 +61,9 @@ export default function Portfolio({ images }) {
                                 key={image.id}
                                 className="col-span-1 border-r border-b  border-t h-84 border-zinc-800/50 relative hover:shadow-lg hover:shadow-zinc-900 cursor-pointer"
                                 onClick={() =>
-                                    setModalImageIndex(images.indexOf(image))
+                                    setModalImageIndex(
+                                        flattenedImages.indexOf(image)
+                                    )
                                 }
                             >
                                 <div className="m-4">
@@ -79,10 +83,13 @@ export default function Portfolio({ images }) {
             {modalImageIndex !== null && (
                 <div
                     className="fixed top-0 left-0 w-full h-full bg-stone-950 bg-opacity-95 lg:flex lg:flex-row flex flex-col items-center justify-center cursor-pointer pt-24 px-4 lg:pt-4"
-                    // onClick={closeModal}
+                    onClick={() => setModalImageIndex(null)}
                 >
                     <button
-                        onClick={goToPreviousImage}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            goToPreviousImage();
+                        }}
                         className="hidden md:pr-4 md:block"
                     >
                         <svg
@@ -100,17 +107,22 @@ export default function Portfolio({ images }) {
                             <path d="m15 18-6-6 6-6" />
                         </svg>
                     </button>
-                    <CldImage
-                        {...handlers}
-                        src={images[modalImageIndex].title}
-                        alt="modal-image"
-                        className="w-[64rem] object-contain"
-                        width="1920"
-                        height="1920"
-                        sizes="100vw"
-                    />
+                    <div {...handlers}>
+                        <CldImage
+                            src={flattenedImages[modalImageIndex].title}
+                            alt="modal-image"
+                            className="w-[64rem] object-contain"
+                            width="1920"
+                            height="1920"
+                            sizes="100vw"
+                        />
+                    </div>
+
                     <button
-                        onClick={goToNextImage}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            goToNextImage();
+                        }}
                         className="w-24 h-24 hidden md:block md:pl-4"
                     >
                         <svg
