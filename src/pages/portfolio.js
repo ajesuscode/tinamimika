@@ -146,7 +146,7 @@ export default function Portfolio({ images }) {
     );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const results = await search();
     console.log("results", results);
     const { resources } = results;
