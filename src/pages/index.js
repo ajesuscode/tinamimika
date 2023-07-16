@@ -45,7 +45,7 @@ export default function Home() {
                     <Link href="/portfolio#ocean">
                         <OceanIcon />
                         <div class="absolute top-0 right-full w-24 mt-2 tracking-widest text-zinc-500 px-4 rounded-md text-sm invisible group-hover/icon:visible font-display">
-                            Ocean
+                            Life
                         </div>
                     </Link>
                 </div>
@@ -80,7 +80,7 @@ export default function Home() {
                     <Link href="/portfolio#ocean">
                         <OceanIcon />
                         <span className="text-xs font-display text-zinc-600 tracking-widest pt-4">
-                            Ocean
+                            Life
                         </span>
                     </Link>
                 </div>

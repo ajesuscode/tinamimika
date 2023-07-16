@@ -44,7 +44,7 @@ export default function Portfolio({ images }) {
         trackMouse: true,
     });
 
-    console.log(modalImageIndex);
+    console.log(imagesByFolder);
     return (
         <>
             {Object.entries(imagesByFolder).map(([folder, images]) => (
@@ -69,10 +69,11 @@ export default function Portfolio({ images }) {
                                 <div className="m-4">
                                     <CldImage
                                         width="800"
-                                        height="800"
+                                        height="600"
                                         src={image.title}
                                         sizes="75vw"
                                         alt={image.title}
+                                        crop="fill"
                                     />
                                 </div>
                             </div>
@@ -156,7 +157,7 @@ export async function getServerSideProps() {
     const folderOrder = {
         exterior: 1,
         interior: 2,
-        ocean: 3,
+        life: 3,
         paysage: 4,
     };
 
