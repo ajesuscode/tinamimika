@@ -1,61 +1,61 @@
 import React from "react";
 
-export function ExteriorIcon() {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 113.39 113.39"
-            className="w-8 h-8 text-zinc-600 hover:text-zinc-300"
-        >
-            <g id="レイヤー_2" data-name="レイヤー 2">
-                <g id="waku">
-                    <rect
-                        className="fill-none"
-                        width="113.39"
-                        height="113.39"
-                    />
-                </g>
-                <g id="編集モード">
-                    <polygon
-                        className="fill-current"
-                        fill="currentColor"
-                        points="9.91 96.38 24.08 96.38 24.08 76.45 9.91 79.37 9.91 96.38"
-                    />
-                    <polygon
-                        className="fill-current"
-                        fill="currentColor"
-                        points="29.75 96.38 43.93 96.38 43.93 72.27 29.75 75.26 29.75 96.38"
-                    />
-                    <polygon
-                        className="fill-current"
-                        fill="currentColor"
-                        points="89.29 96.38 103.47 96.38 103.47 79.37 89.29 76.42 89.29 96.38"
-                    />
-                    <polygon
-                        className="fill-current"
-                        fill="currentColor"
-                        points="69.44 96.38 83.62 96.38 83.62 75.26 69.44 72.29 69.44 96.38"
-                    />
-                    <rect
-                        className="fill-current"
-                        fill="currentColor"
-                        x="49.6"
-                        y="72.27"
-                        width="14.18"
-                        height="24.1"
-                    />
-                    <path
-                        className="fill-current"
-                        fill="currentColor"
-                        d="M72.28,11.34H41.09l-31.19,17V73.7l34-7.1H69.44l34,7.1V28.35ZM9.91,73.7l34-7.1M30,58.42,21,60.48V51.39L30,47.63ZM83.34,47.63l9.07,3.76v9.09l-9.07-2.06ZM30,38.46,21,42.65v-10l9.07-5Zm53.3-10.59,9.07,5v10l-9.07-4.19Zm-21,27.41H51V43.94H62.36Zm0-22.68H51V21.26H62.36Z"
-                    />
-                </g>
-            </g>
-        </svg>
-    );
-}
+// export function ExteriorIcon() {
+//     return (
+//         <svg
+//             xmlns="http://www.w3.org/2000/svg"
+//             viewBox="0 0 113.39 113.39"
+//             className="w-8 h-8 text-zinc-600 hover:text-zinc-300"
+//         >
+//             <g id="レイヤー_2" data-name="レイヤー 2">
+//                 <g id="waku">
+//                     <rect
+//                         className="fill-none"
+//                         width="113.39"
+//                         height="113.39"
+//                     />
+//                 </g>
+//                 <g id="編集モード">
+//                     <polygon
+//                         className="fill-current"
+//                         fill="currentColor"
+//                         points="9.91 96.38 24.08 96.38 24.08 76.45 9.91 79.37 9.91 96.38"
+//                     />
+//                     <polygon
+//                         className="fill-current"
+//                         fill="currentColor"
+//                         points="29.75 96.38 43.93 96.38 43.93 72.27 29.75 75.26 29.75 96.38"
+//                     />
+//                     <polygon
+//                         className="fill-current"
+//                         fill="currentColor"
+//                         points="89.29 96.38 103.47 96.38 103.47 79.37 89.29 76.42 89.29 96.38"
+//                     />
+//                     <polygon
+//                         className="fill-current"
+//                         fill="currentColor"
+//                         points="69.44 96.38 83.62 96.38 83.62 75.26 69.44 72.29 69.44 96.38"
+//                     />
+//                     <rect
+//                         className="fill-current"
+//                         fill="currentColor"
+//                         x="49.6"
+//                         y="72.27"
+//                         width="14.18"
+//                         height="24.1"
+//                     />
+//                     <path
+//                         className="fill-current"
+//                         fill="currentColor"
+//                         d="M72.28,11.34H41.09l-31.19,17V73.7l34-7.1H69.44l34,7.1V28.35ZM9.91,73.7l34-7.1M30,58.42,21,60.48V51.39L30,47.63ZM83.34,47.63l9.07,3.76v9.09l-9.07-2.06ZM30,38.46,21,42.65v-10l9.07-5Zm53.3-10.59,9.07,5v10l-9.07-4.19Zm-21,27.41H51V43.94H62.36Zm0-22.68H51V21.26H62.36Z"
+//                     />
+//                 </g>
+//             </g>
+//         </svg>
+//     );
+// }
 
-export function InteriorIcon() {
+export function ExteriorIcon() {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -178,6 +178,33 @@ export function OceanIcon() {
                         className="fill-current"
                         fill="currentColor"
                         d="M90.71,45.35A34,34,0,1,0,24.62,56.69H88.77A34,34,0,0,0,90.71,45.35Z"
+                    />
+                </g>
+            </g>
+        </svg>
+    );
+}
+
+export function InteriorIcon() {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 113.39 113.39"
+            className="w-8 h-8 text-zinc-600 hover:text-zinc-300"
+        >
+            <defs></defs>
+            <g id="レイヤー_2" data-name="レイヤー 2">
+                <g id="waku">
+                    <rect
+                        className="fill-none"
+                        width="113.39"
+                        height="113.39"
+                    />
+                </g>
+                <g id="編集モード">
+                    <path
+                        className="fill-current"
+                        d="M106.15,76.1,67.43,14.45a12.66,12.66,0,0,0-21.48,0L7.24,76.1a10,10,0,0,0,3,13.73l4.57,2.95L17,94.17v13.54H96.38V94.18l2.18-1.41,4.57-2.95A10,10,0,0,0,106.15,76.1ZM49.61,85H41.1v-8.5h8.5ZM61,62.36h-8.5v-8.5H61ZM72.28,85h-8.5v-8.5h8.5Zm28.54,1.21L96.25,89.2l-39.56-63-39.56,63-4.57-2.95a5.76,5.76,0,0,1-1.73-7.89L49.55,16.71a8.4,8.4,0,0,1,14.28,0l38.72,61.64A5.76,5.76,0,0,1,100.82,86.25Z"
                     />
                 </g>
             </g>

@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import pic1 from "../assets/pic1.jpeg";
-import { ExteriorIcon } from "@/components/icons/icons";
+import { ExteriorIcon, OceanIcon } from "@/components/icons/icons";
 import { InteriorIcon } from "@/components/icons/icons";
 import { PaysageIcon } from "@/components/icons/icons";
-import { OceanIcon } from "@/components/icons/icons";
+import { PeopleIcon } from "@/components/icons/icons";
 
 export default function Home() {
     return (
@@ -42,7 +42,7 @@ export default function Home() {
                     </Link>
                 </div>
                 <div className="relative hover:scale-105 group/icon">
-                    <Link href="/portfolio#ocean">
+                    <Link href="/portfolio#life">
                         <OceanIcon />
                         <div class="absolute top-0 right-full w-24 mt-2 tracking-widest text-zinc-500 px-4 rounded-md text-sm invisible group-hover/icon:visible font-display">
                             Life
@@ -77,7 +77,7 @@ export default function Home() {
                     </Link>
                 </div>
                 <div className="flex flex-col items-center">
-                    <Link href="/portfolio#ocean">
+                    <Link href="/portfolio#life">
                         <OceanIcon />
                         <span className="text-xs font-display text-zinc-600 tracking-widest pt-4">
                             Life
