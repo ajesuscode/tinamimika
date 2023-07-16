@@ -9,40 +9,38 @@ export default function About() {
                 </div> */}
                 <div>
                     <p className="font-body font-normal text-zinc-200 ">
-                        Bonjour! I'm{" "}
+                        Bonjour, I am{" "}
                         <span className="font-display text-lg uppercase tracking-widest lg:text-3xl">
                             Tina Mimika
                         </span>
-                        and I'm passionate about capturing the beauty of
-                        interior spaces, landscapes, and the ocean through my
-                        medium format photography.
+                        an interior photographer based in France.
                     </p>
                     <p className="font-body  font-normal text-zinc-200 pt-4">
-                        Over the years, I've honed my skills and developed a
-                        keen eye for detail, allowing me to transform ordinary
-                        spaces into extraordinary works of art. From luxurious
-                        beachfront villas to cozy countryside homes, I've
-                        photographed a wide range of projects that showcase the
-                        unique beauty of each subject.
+                        The interplay of light and the beauty of life, the
+                        harmony of nature and design – these are the essence of
+                        my photography. With strong background as creative
+                        director and degree in film studies, I bring a unique
+                        blend of technical excellence and artistic vision to my
+                        photography.
                     </p>
                     <p className="font-body  font-normal text-zinc-200 pt-4">
-                        My photography love for capturing the essence of each
-                        subject grew into a career. With extensive experience as
-                        a creative director in advertising, I possess the
-                        skillset to artistically connect clients, customers, and
-                        their desired products or services. I bring a unique
-                        blend of creativity and business acumen to deliver
-                        exceptional results.
+                        I specialize in crafting captivating photo stories of
+                        interior design photography that truly resonate with the
+                        client’s perspective.
                     </p>
                     <p className="font-body  font-normal text-zinc-200 pt-4">
-                        Aside from photography, I'm also deeply passionate about
-                        the environment and the natural world. I've always had a
-                        love for the ocean, and this passion is reflected in my
-                        oceanscapes, which capture the power and majesty of the
-                        Father Ocean.
+                        I have created numerous architectural photos and
+                        promotional videos for hotels, residences, and resorts
+                        that effectively attract new visitors and capture the
+                        ambiance.
                     </p>
                     <p className="font-body  font-normal text-zinc-200 pt-4">
-                        🇫🇷 France. 🌍 Worldwide
+                        Using my knowledge and passion for this craft, it would
+                        be a pleasure to collaborate with you in Pays Basque or
+                        all around the world.
+                    </p>
+                    <p className="font-body  font-normal text-zinc-200 pt-4">
+                        Respectfully, Tina. 🌳
                     </p>
                 </div>
             </div>
