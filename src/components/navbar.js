@@ -58,9 +58,37 @@ function Navbar() {
                             >
                                 About
                             </Link>
+                            <Link
+                                className="py-2 text-sm font-display tracking-widest text-zinc-200 md:px-4"
+                                href="/blog"
+                            >
+                                Blog
+                            </Link>
                         </nav>
                     </div>
-                    <div class="md:hidden lg:hidden px-2">
+                    <div class="md:hidden lg:hidden px-2 ">
+                        <div>
+                            <Link href="/blog">
+                                <svg
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="w-6 h-6 text-zinc-400"
+                                >
+                                    <path
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.5"
+                                        d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5L2 22l1.5-5.5Zm-2 2l4 4"
+                                    />
+                                </svg>
+                            </Link>
+                        </div>
+                    </div>
+                    <div class="md:hidden lg:hidden px-2  ">
                         <div>
                             <Link href="/about">
                                 <svg
