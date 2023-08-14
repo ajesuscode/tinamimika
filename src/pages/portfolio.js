@@ -84,7 +84,7 @@ export default function Portfolio({ images }) {
             ))}
             {modalImageIndex !== null && (
                 <div
-                    className="fixed top-0 left-0 w-full h-full bg-stone-950 bg-opacity-95 lg:flex lg:flex-row flex flex-col items-center justify-center cursor-pointer pt-24 px-4 lg:pt-4"
+                    className="fixed top-0 left-0 w-full h-full bg-stone-950  lg:flex lg:flex-row flex flex-col items-center justify-center cursor-pointer pt-24 px-4 lg:pt-4"
                     onClick={() => setModalImageIndex(null)}
                 >
                     <button
@@ -113,7 +113,7 @@ export default function Portfolio({ images }) {
                         <CldImage
                             src={flattenedImages[modalImageIndex].title}
                             alt="modal-image"
-                            className=" lg:max-h-[680px] object-contain"
+                            className=" lg:max-h-[680px]"
                             width={960}
                             height={960}
                             sizes="100vw"
