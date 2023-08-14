@@ -7,6 +7,7 @@ function Footer() {
             <div className="container flex flex-col p-4 mx-auto md:p-8">
                 <ul className="self-center py-6 space-y-4 text-center sm:flex sm:space-y-0 sm:justify-around sm:space-x-4 lg:flex-1 lg:px-4 lg:justify-around font-display tracking-widest font-normal text-sm">
                     <Link href="/about">Contact</Link>
+                    <Link href="/blog">Blog</Link>
                 </ul>
                 <div className="flex flex-col justify-center pt-6 lg:pt-0">
                     <div className="flex justify-center space-x-4">
