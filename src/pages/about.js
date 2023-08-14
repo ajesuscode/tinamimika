@@ -2,7 +2,7 @@ import Image from "next/image";
 import mimika from "@/assets/mimika.jpeg";
 export default function About() {
     return (
-        <section className="md:p-28 lg:py-24 px-12 bg-zinc-950 h-screen py-20 lg:text-2xl overflow-y-auto">
+        <section className="md:p-28 lg:py-24 px-12 bg-zinc-950 h-full py-20 lg:text-2xl overflow-y-auto">
             <div className="flex flex-col justify-center items-center gap-4">
                 {/* <div>
                     <Image src={mimika} alt="mimika" className="w-[10rem] " />
@@ -30,7 +30,7 @@ export default function About() {
                     </p>
                     <p className="font-body  font-normal text-zinc-200 pt-4">
                         I have created numerous architectural photos and
-                        promotional videos for hotels, residences, and resorts
+                        promotional projects for hotels, residences, and resorts
                         that effectively attract new visitors and capture the
                         ambiance.
                     </p>

@@ -16,6 +16,11 @@ module.exports = {
                 display: ["Kultur"],
                 body: ["Satoshi"],
             },
+            utilities: {
+                ".object-center": {
+                    "object-position": "center",
+                },
+            },
         },
     },
     plugins: [],

@@ -66,14 +66,15 @@ export default function Portfolio({ images }) {
                                     )
                                 }
                             >
-                                <div className="m-4">
+                                <div className="m-4 ">
                                     <CldImage
                                         width="800"
                                         height="600"
                                         src={image.title}
                                         sizes="75vw"
                                         alt={image.title}
-                                        crop="fill"
+                                        crop="limit"
+                                        className="object-center"
                                     />
                                 </div>
                             </div>
@@ -112,9 +113,9 @@ export default function Portfolio({ images }) {
                         <CldImage
                             src={flattenedImages[modalImageIndex].title}
                             alt="modal-image"
-                            className="w-[64rem] object-contain"
-                            width="1920"
-                            height="1920"
+                            className="max-h-[300px] lg:max-h-[680px] object-contain"
+                            width={960}
+                            height={960}
                             sizes="100vw"
                         />
                     </div>
