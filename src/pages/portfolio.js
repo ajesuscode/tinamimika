@@ -109,11 +109,11 @@ export default function Portfolio({ images }) {
                             <path d="m15 18-6-6 6-6" />
                         </svg>
                     </button>
-                    <div {...handlers}>
+                    <div {...handlers} onClick={(e) => e.stopPropagation()}>
                         <CldImage
                             src={flattenedImages[modalImageIndex].title}
                             alt="modal-image"
-                            className="max-h-[300px] lg:max-h-[680px] object-contain"
+                            className=" lg:max-h-[680px] object-contain"
                             width={960}
                             height={960}
                             sizes="100vw"
