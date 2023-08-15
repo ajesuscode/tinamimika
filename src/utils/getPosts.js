@@ -8,7 +8,7 @@ const client = createClient({
 // Retrieve the list of blog posts from Contentful
 export const getBlogPosts = async () => {
     const response = await client.getEntries({
-        content_type: "blogPost",
+        content_type: "blogMimika",
     });
     return response.items;
 };
@@ -21,7 +21,7 @@ export const getSinglePost = async (id) => {
 
 export const getPostsIds = async () => {
     const response = await client.getEntries({
-        content_type: "blogPost",
+        content_type: "blogMimika",
     });
     const ids = response.items.map((item) => {
         return item.sys.id;
