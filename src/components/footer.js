@@ -70,7 +70,7 @@ function Footer() {
                             href="https://github.com/ajesuscode"
                             title="Vimeo"
                             target="_blank"
-                            className="text-lime-900 px-1 hover:text-lime-600"
+                            className="text-lime-800 px-1 hover:text-lime-600"
                         >
                             <span>ajesuscode </span>
                         </a>
