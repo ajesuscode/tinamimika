@@ -52,7 +52,7 @@ export default function Blog({ posts }) {
     );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     console.log("function call");
     const data = await getBlogPosts();
     let posts = await mapPosts(data);
