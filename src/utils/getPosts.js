@@ -1,8 +1,8 @@
 import { createClient } from "contentful";
 
 const client = createClient({
-    space: process.env.SPACE_ID,
-    accessToken: process.env.CONTENTFUL_TOKEN,
+    space: process.env.NEXT_PUBLIC_SPACE_ID,
+    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_TOKEN,
 });
 
 // Retrieve the list of blog posts from Contentful
