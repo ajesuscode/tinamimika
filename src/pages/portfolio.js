@@ -23,7 +23,17 @@ export default function Portfolio({ images }) {
         return groups;
     }, {});
 
+    const asArray = Object.entries(imagesByFolder);
+    const filtered = asArray.filter(
+        ([key, value]) => key !== "blog/1_Cabarceno"
+    );
+    console.log(filtered);
+    const portfolioImages = Object.fromEntries(filtered);
+
     const flattenedImages = [].concat(...Object.values(imagesByFolder));
+    // const portfolioImages = flattenedImages.filter(
+    //     (image) => image.folder !== "blog/1_Cabarceno"
+    // );
 
     const goToNextImage = () => {
         setModalImageIndex((prevIndex) =>
@@ -44,10 +54,9 @@ export default function Portfolio({ images }) {
         trackMouse: true,
     });
 
-    console.log(imagesByFolder);
     return (
         <>
-            {Object.entries(imagesByFolder).map(([folder, images]) => (
+            {Object.entries(portfolioImages).map(([folder, images]) => (
                 <div key={folder} id={folder} className="bg-zinc-950">
                     <div className="flex flex-row justify-center gap-4 py-6 pl-4 items-center">
                         <h2 className="font-display tracking-widest text-xs ">
@@ -150,7 +159,7 @@ export default function Portfolio({ images }) {
 
 export async function getServerSideProps() {
     const results = await search();
-    console.log("results", results);
+
     const { resources } = results;
     let images = mapImageResource(resources);
 

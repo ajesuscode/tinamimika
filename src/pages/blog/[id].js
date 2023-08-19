@@ -54,7 +54,7 @@ export default function Page({ post }) {
                             <Image
                                 src={img.original_secure_url}
                                 alt={img.public_id}
-                                width={600}
+                                width={550}
                                 quality={100}
                                 height={600}
                                 className="max-w-full mb-2"
@@ -70,57 +70,6 @@ export default function Page({ post }) {
         </article>
     );
 }
-
-// export async function getStaticPaths() {
-//     const allPostIds = await getPostsIds();
-//     const paths = allPostIds.map((id) => ({
-//         params: {
-//             id: id.toString(),
-//         },
-//     }));
-
-//     return {
-//         paths,
-//         fallback: false, // See the "fallback" section below
-//     };
-// }
-
-// export async function getStaticProps({ params }) {
-//     const postData = await getSinglePost(params.id);
-//     const isoDate = postData.fields.date;
-//     const date = new Date(isoDate);
-//     const monthNames = [
-//         "January",
-//         "February",
-//         "March",
-//         "April",
-//         "May",
-//         "June",
-//         "July",
-//         "August",
-//         "September",
-//         "October",
-//         "November",
-//         "December",
-//     ];
-//     const friendlyDate = `${date.getDate()} ${
-//         monthNames[date.getMonth()]
-//     } ${date.getFullYear()}`;
-//     const post = {
-//         id: postData.sys.id,
-//         date: friendlyDate || null,
-//         title: postData.fields.title,
-//         content: postData.fields.content.content,
-//         img: postData.fields.cloud,
-//         location: postData.fields.location,
-//     };
-//     console.log("THIS IS A POST DATA", post);
-//     return {
-//         props: {
-//             post,
-//         },
-//     };
-// }
 
 export async function getServerSideProps(context) {
     const postData = await getSinglePost(context.params.id);
@@ -151,7 +100,7 @@ export async function getServerSideProps(context) {
         img: postData.fields.cloud,
         location: postData.fields.location,
     };
-    console.log("THIS IS A POST DATA", post);
+
     return {
         props: {
             post,

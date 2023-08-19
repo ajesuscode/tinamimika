@@ -15,7 +15,6 @@ export const getBlogPosts = async () => {
 
 export const getSinglePost = async (id) => {
     const response = await client.getEntry(id);
-    console.log(response);
     return response;
 };
 
@@ -53,7 +52,6 @@ export function mapPosts(data) {
         const keywords = post.fields.keyword
             .split(",")
             .map((keyword) => keyword.trim());
-        console.log("POST", post);
         return {
             id: post.sys.id,
             title: post.fields.title,

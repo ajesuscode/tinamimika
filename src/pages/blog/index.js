@@ -4,21 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Blog({ posts }) {
-    console.log(posts);
     return (
-        <div className="md:p-20 xl:p-36 lg:p-24 bg-zinc-950 h-screen py-12 lg:text-2xl overflow-y-auto">
+        <div className=" xl:p-4 bg-zinc-950 h-screen py-12 lg:text-2xl overflow-y-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
                 {posts.map((post) => (
                     <Link href={`/blog/${post.id}`} key={post.id}>
                         <div
                             key={post.id}
-                            className="max-w-lg  lg:p-8 flex flex-col justify-center relative"
+                            className="w-screen  lg:p-8 flex flex-col justify-center relative"
                         >
-                            <div className="relative w-full h-64 overflow-hidden mb-6">
+                            <div className="flex justify-center relative w-full overflow-hidden mb-6 md:block">
                                 <Image
                                     src={`${[post.image]}`}
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    fill={true}
+                                    width={390}
+                                    height={498}
                                     alt={post.image}
                                     style={{ objectFit: "cover" }}
                                 />
@@ -53,10 +52,8 @@ export default function Blog({ posts }) {
 }
 
 export async function getServerSideProps() {
-    console.log("function call");
     const data = await getBlogPosts();
     let posts = await mapPosts(data);
-    console.log(posts);
     return {
         props: {
             posts,

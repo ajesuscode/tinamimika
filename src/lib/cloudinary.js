@@ -1,6 +1,6 @@
 export async function search() {
     const results = await fetch(
-        `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/resources/search`,
+        `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/resources/search/tags=portfolio`,
         {
             headers: {
                 Authorization: `Basic ${Buffer.from(
@@ -11,6 +11,7 @@ export async function search() {
             },
         }
     ).then((r) => r.json());
+
     return results;
 }
 
