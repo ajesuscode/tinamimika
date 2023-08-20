@@ -1,49 +1,56 @@
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import mimika from "@/assets/mimika.jpeg";
+
 export default function About() {
+    const router = useRouter();
+    const { t } = useTranslation("about");
+
     return (
-        <section className="md:p-28 lg:py-24 px-12 bg-zinc-950 h-full py-20 lg:text-2xl overflow-y-auto">
+        <section className="relative md:p-28 lg:py-24 px-12 bg-zinc-950 h-full py-20 lg:text-2xl overflow-y-auto">
+            <button
+                className="absolute top-4 right-4 border border-zinc-400 w-8 h-8 rounded-sm font-display text-zinc-400 text-xs lg:text-sm"
+                onClick={() => {
+                    const newLocale = router.locale === "en" ? "fr" : "en";
+                    router.push(router.asPath, undefined, {
+                        locale: newLocale,
+                    });
+                }}
+            >
+                {router.locale === "en" ? "fr" : "en"}
+            </button>
             <div className="flex flex-col justify-center items-center gap-4">
-                {/* <div>
-                    <Image src={mimika} alt="mimika" className="w-[10rem] " />
-                </div> */}
                 <div>
                     <p className="font-body font-normal text-zinc-200 ">
-                        Bonjour, I am{" "}
-                        <span className="font-display text-lg uppercase tracking-widest lg:text-3xl">
-                            Tina Mimika
-                        </span>
-                        an interior photographer based in France.
+                        {t("intro")} Tina Mimika {t("description")}
                     </p>
                     <p className="font-body  font-normal text-zinc-200 pt-4">
-                        The interplay of light and the beauty of life, the
-                        harmony of nature and design – these are the essence of
-                        my photography. With strong background as creative
-                        director and degree in film studies, I bring a unique
-                        blend of technical excellence and artistic vision to my
-                        photography.
+                        {t("paragraph1")}
                     </p>
                     <p className="font-body  font-normal text-zinc-200 pt-4">
-                        I specialize in crafting captivating photo stories of
-                        interior design photography that truly resonate with the
-                        client’s perspective.
+                        {t("paragraph2")}
                     </p>
                     <p className="font-body  font-normal text-zinc-200 pt-4">
-                        I have created numerous architectural photos and
-                        promotional projects for hotels, residences, and resorts
-                        that effectively attract new visitors and capture the
-                        ambiance.
+                        {t("paragraph3")}
                     </p>
                     <p className="font-body  font-normal text-zinc-200 pt-4">
-                        Using my knowledge and passion for this craft, it would
-                        be a pleasure to collaborate with you in Pays Basque or
-                        all around the world.
+                        {t("paragraph4")}
                     </p>
                     <p className="font-body  font-normal text-zinc-200 pt-4">
-                        Respectfully, Tina. 🌳
+                        {t("closing")}
                     </p>
                 </div>
             </div>
         </section>
     );
 }
+
+export const getServerSideProps = async ({ locale }) => {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale, ["about"])),
+        },
+    };
+};

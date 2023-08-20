@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Blog({ posts }) {
     return (
-        <div className=" xl:p-4 bg-zinc-950 h-screen py-12 lg:text-2xl overflow-y-auto">
+        <div className=" xl:p-4 bg-zinc-950 h-full py-12 lg:text-2xl overflow-y-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
                 {posts
                     .slice()
