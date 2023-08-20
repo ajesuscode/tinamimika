@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
     reactStrictMode: true,
     images: {
         domains: ["images.ctfassets.net", "res.cloudinary.com"],
@@ -10,3 +10,4 @@ module.exports = {
     },
     localePath: path.resolve("./public/locales"),
 };
+module.exports = nextConfig;
