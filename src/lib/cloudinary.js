@@ -1,17 +1,21 @@
 export async function search() {
     const results = await fetch(
-        `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/resources/search/tags=portfolio`,
+        `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/resources/search`,
         {
+            method: "POST",
             headers: {
+                "Content-Type": "application/json",
                 Authorization: `Basic ${Buffer.from(
                     process.env.CLOUDINARY_API_KEY +
                         ":" +
                         process.env.CLOUDINARY_API_SECRET
                 ).toString("base64")}`,
             },
+            body: JSON.stringify({
+                expression: "portfolio",
+            }),
         }
     ).then((r) => r.json());
-
     return results;
 }
 

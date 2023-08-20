@@ -4,8 +4,12 @@ import { CldImage } from "next-cloudinary";
 import { search, mapImageResource } from "@/lib/cloudinary";
 
 export default function Portfolio({ images }) {
-    const [modalImage, setModalImage] = useState(null);
+    const [isMobile, setIsMobile] = useState(false);
     const [modalImageIndex, setModalImageIndex] = useState(null);
+    useEffect(() => {
+        // Set isMobile to true if the screen width is less than or equal to 768px
+        setIsMobile(window.innerWidth <= 768);
+    }, []);
 
     const openModal = (image) => {
         setModalImage(image);
@@ -39,7 +43,7 @@ export default function Portfolio({ images }) {
 
     let portfolioImages = Object.fromEntries(filtered);
 
-    const flattenedImages = [].concat(...Object.values(imagesByFolder));
+    const flattenedImages = [].concat(...Object.values(portfolioImages));
 
     const goToNextImage = () => {
         setModalImageIndex((prevIndex) =>
@@ -53,16 +57,9 @@ export default function Portfolio({ images }) {
         );
     };
 
-    const handlers = useSwipeable({
-        onSwipedLeft: () => goToNextImage(),
-        onSwipedRight: () => goToPreviousImage(),
-        preventDefaultTouchmoveEvent: true,
-        trackMouse: true,
-    });
-
     return (
         <>
-            {Object.entries(portfolioImages).map(([folder, images]) => (
+            {Object.entries(portfolioImages).map(([folder, img]) => (
                 <div key={folder} id={folder} className="bg-zinc-950">
                     <div className="flex flex-row justify-center gap-4 py-6 pl-4 items-center">
                         <h2 className="font-display tracking-widest text-xs ">
@@ -71,15 +68,18 @@ export default function Portfolio({ images }) {
                     </div>
 
                     <div className="grid lg:grid-cols-4 grid-cols-1 md:grid-cols-2 bg-zinc-950">
-                        {images.map((image) => (
+                        {img.map((image) => (
                             <div
                                 key={image.id}
                                 className="col-span-1 border-r border-b  border-t h-84 border-zinc-800/50 relative hover:shadow-lg hover:shadow-zinc-900 cursor-pointer"
-                                onClick={() =>
-                                    setModalImageIndex(
-                                        flattenedImages.indexOf(image)
-                                    )
-                                }
+                                onClick={() => {
+                                    // Only allow click action if not on mobile
+                                    if (!isMobile) {
+                                        setModalImageIndex(
+                                            flattenedImages.indexOf(image)
+                                        );
+                                    }
+                                }}
                             >
                                 <div className="m-4 ">
                                     <CldImage
@@ -124,13 +124,16 @@ export default function Portfolio({ images }) {
                             <path d="m15 18-6-6 6-6" />
                         </svg>
                     </button>
-                    <div {...handlers} onClick={(e) => e.stopPropagation()}>
+                    <div
+                        onClick={(e) => e.stopPropagation()}
+                        className="h-[640px]"
+                    >
                         <CldImage
                             src={flattenedImages[modalImageIndex].title}
                             alt="modal-image"
-                            className=" lg:max-h-[680px]"
-                            width={960}
-                            height={960}
+                            className="object-contain h-full w-full"
+                            width={1920}
+                            height={1080}
                             sizes="100vw"
                         />
                     </div>
