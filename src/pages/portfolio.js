@@ -24,16 +24,22 @@ export default function Portfolio({ images }) {
     }, {});
 
     const asArray = Object.entries(imagesByFolder);
-    const filtered = asArray.filter(
-        ([key, value]) => key !== "blog/1_Cabarceno"
-    );
-    console.log(filtered);
-    const portfolioImages = Object.fromEntries(filtered);
+    const folderOrder = {
+        exterior: 1,
+        interior: 2,
+        life: 3,
+        paysage: 4,
+    };
+    const allowedKeys = ["exterior", "interior", "life", "paysage"];
+    let filtered = asArray.filter(([key, value]) => allowedKeys.includes(key));
+
+    filtered = filtered.sort((a, b) => {
+        return folderOrder[a[0]] - folderOrder[b[0]];
+    });
+
+    let portfolioImages = Object.fromEntries(filtered);
 
     const flattenedImages = [].concat(...Object.values(imagesByFolder));
-    // const portfolioImages = flattenedImages.filter(
-    //     (image) => image.folder !== "blog/1_Cabarceno"
-    // );
 
     const goToNextImage = () => {
         setModalImageIndex((prevIndex) =>
@@ -161,20 +167,7 @@ export async function getServerSideProps() {
     const results = await search();
 
     const { resources } = results;
-    let images = mapImageResource(resources);
-
-    // Define the sort order for the folders
-    const folderOrder = {
-        exterior: 1,
-        interior: 2,
-        life: 3,
-        paysage: 4,
-    };
-
-    // Sort images by folder
-    images = images.sort((a, b) => {
-        return folderOrder[a.folder] - folderOrder[b.folder];
-    });
+    const images = mapImageResource(resources);
 
     return {
         props: {
