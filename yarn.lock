@@ -4153,6 +4153,11 @@ next-sanity@^5.1.1:
     "@sanity/webhook" "2.0.0"
     groq "^3.0.0"
 
+next-seo@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-6.1.0.tgz#b60b06958cc77e7ed56f0a61b2d6cd0afed88ebb"
+  integrity sha512-iMBpFoJsR5zWhguHJvsoBDxDSmdYTHtnVPB1ij+CD0NReQCP78ZxxbdL9qkKIf4oEuZEqZkrjAQLB0bkII7RYA==
+
 next@13.3.1:
   version "13.3.1"
   resolved "https://registry.npmjs.org/next/-/next-13.3.1.tgz"
