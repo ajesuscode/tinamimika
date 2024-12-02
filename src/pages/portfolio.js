@@ -155,7 +155,7 @@ export default function Portfolio({ images }) {
                             stroke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
-                            class="lucide lucide-chevron-right"
+                            className="lucide lucide-chevron-right"
                         >
                             <path d="m9 18 6-6-6-6" />
                         </svg>

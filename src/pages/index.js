@@ -16,7 +16,7 @@ export default function Home() {
                     <div className="relative hover:scale-105 group/icon">
                         <Link href="/portfolio#exterior">
                             <ExteriorIcon />
-                            <div class="absolute top-0 left-full w-72 mt-2 tracking-widest text-zinc-500 px-4 rounded-md text-sm invisible group-hover/icon:visible font-display">
+                            <div className="absolute top-0 left-full w-72 mt-2 tracking-widest text-zinc-500 px-4 rounded-md text-sm invisible group-hover/icon:visible font-display">
                                 Exterior
                             </div>
                         </Link>
@@ -24,7 +24,7 @@ export default function Home() {
                     <div className="relative hover:scale-105 group/icon">
                         <Link href="/portfolio#interior">
                             <InteriorIcon />
-                            <div class="absolute top-0 left-full w-72 mt-2 tracking-widest text-zinc-500 px-4 rounded-md text-sm invisible group-hover/icon:visible font-display">
+                            <div className="absolute top-0 left-full w-72 mt-2 tracking-widest text-zinc-500 px-4 rounded-md text-sm invisible group-hover/icon:visible font-display">
                                 Interior
                             </div>
                         </Link>
@@ -37,7 +37,7 @@ export default function Home() {
                     <div className="relative hover:scale-105 group/icon">
                         <Link href="/portfolio#paysage">
                             <PaysageIcon />
-                            <div class="absolute top-0 right-full w-24 mt-2 tracking-widest text-zinc-500 px-4 rounded-md text-sm invisible group-hover/icon:visible font-display">
+                            <div className="absolute top-0 right-full w-24 mt-2 tracking-widest text-zinc-500 px-4 rounded-md text-sm invisible group-hover/icon:visible font-display">
                                 Paysage
                             </div>
                         </Link>
@@ -45,8 +45,8 @@ export default function Home() {
                     <div className="relative hover:scale-105 group/icon">
                         <Link href="/portfolio#life">
                             <OceanIcon />
-                            <div class="absolute top-0 right-full w-24 mt-2 tracking-widest text-zinc-500 px-4 rounded-md text-sm invisible group-hover/icon:visible font-display">
-                                Life
+                            <div className="absolute top-0 right-full w-24 mt-2 tracking-widest text-zinc-500 px-4 rounded-md text-sm invisible group-hover/icon:visible font-display">
+                                Yachts
                             </div>
                         </Link>
                     </div>
@@ -81,7 +81,7 @@ export default function Home() {
                         <Link href="/portfolio#life">
                             <OceanIcon />
                             <span className="text-xs font-display text-zinc-600 tracking-widest pt-4">
-                                Life
+                                Yachts
                             </span>
                         </Link>
                     </div>
